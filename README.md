@@ -143,5 +143,3 @@ npx hardhat run scripts/deploy.js --network sepolia
 🎉 Your DApp is now **fully functional**! You can:  
 ✅ Mint tokens ✅ Transfer tokens ✅ Check balance ✅ Deploy to a testnet  
 
-🔥 Let me know if you need more features! 🚀
-
