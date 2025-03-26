@@ -25,6 +25,10 @@ function Home() {
   const [amount, setAmount] = useState("");
   const [balance, setBalance] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [account, setAccount] = useState(null);
+  const [contract, setContract] = useState(null);
+  const mintAmount = 2000;
 
   const getBalance = async () => {
     if (!window.ethereum) return alert("Please install MetaMask");
@@ -88,7 +92,46 @@ function Home() {
               </Form>
             </Card.Body>
           </Card>
+        </Col>
+        <Col md={6}>
+          <Card className="shadow-lg">
+            <Card.Header className="bg-primary text-white text-center">
+              🔥 Claim 2000 Fuego Tokens
+            </Card.Header>
+            <Card.Body className="text-center">
+              <Card.Text>
+                Click the button below to claim your <strong>2000FTG Free</strong>{" "}
+                tokens. You can only claim once!
+              </Card.Text>
 
+              {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
+
+              {account ? (
+                <Button
+                  variant={minted ? "secondary" : "success"}
+                  onClick={mintTokens}
+                  disabled={minted || loading}
+                >
+                  {loading ? (
+                    <Spinner as="span" animation="border" size="sm" />
+                  ) : minted ? (
+                    "Already Claimed"
+                  ) : (
+                    "Mint 2000 Fuego"
+                  )}
+                </Button>
+              ) : (
+                <Button variant="primary">
+                  Claim
+                </Button>
+              )}
+            </Card.Body>
+            {account && (
+              <Card.Footer className="text-muted text-center">
+                Connected: {account}
+              </Card.Footer>
+            )}
+          </Card>
           <Card className="p-3 shadow-sm mt-4">
             <Card.Body>
               <Form>

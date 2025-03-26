@@ -49,7 +49,7 @@ function WalletBalance() {
 
   return (
       <div>
-          <h3>My ETH Wallet</h3>
+          <h5>Check Your ETH Balance here</h5>
       <Button onClick={handleShow} className="balance-btn">
         Check Balance
       </Button>
