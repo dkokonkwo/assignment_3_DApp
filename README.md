@@ -1,7 +1,7 @@
 # **Fuego DApp**
 
 ## **📌 Overview**  
-The **Fuego DApp** is a decentralized application that allows users to mint **2000 Fuego tokens (FGO) once** and transfer tokens to other users. Built using **Solidity, Hardhat, React, and ethers.js**, this DApp provides a seamless user experience on the Ethereum blockchain.
+The **Fuego DApp** is a decentralized application that allows users to mint **2000 Fuego tokens (FGO) once** and transfer tokens to other users. Built using **Solidity, Hardhat, Truffle, React, and ethers.js**, this DApp provides a seamless user experience on the Ethereum blockchain.
 
 ---
 
@@ -17,8 +17,8 @@ Ensure you have the following installed:
 ## **🚀 1. Setup the Project**  
 Clone the repository and install dependencies:  
 ```sh
-git clone https://github.com/your-repo/fuego-dapp.git
-cd fuego-dapp
+git clone https://github.com/dkokonkwo/assignment_3_DApp.git
+cd fuegoWallet
 npm install
 ```
 
@@ -109,8 +109,8 @@ npm start
 - Click **"Mint 2000 Fuego"** (Only works once per user).
 
 ### **🔁 Transfer Tokens**  
-- Enter the **receiver’s address** and the **amount**.
-- Click **"Send"** to transfer tokens.
+- Enter the **recepient's address** and the **amount**.
+- Click **"Transfer Tokens"** to transfer tokens.
 
 ### **🔍 Check Balance**  
 - The UI displays your **Fuego balance**.
