@@ -2,7 +2,7 @@
   "name": "fuegowallet",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -24,7 +24,7 @@
     "eslint": "^9.21.0",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
-    "ethereum-waffle": "^4.0.10",
+    "ethereum-waffle": "^3.4.4",
     "globals": "^15.15.0",
     "hardhat": "^2.22.19",
     "vite": "^6.2.0"
