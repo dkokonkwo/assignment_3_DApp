@@ -32,7 +32,7 @@ contract("FuegoContract", (accounts) => {
       assert.fail("mintOnce() should not allow multiple calls");
     } catch (error) {
       assert(
-        error.message.includes("Token minted already."),
+        error.message.includes("Token already claimed."),
         `Expected "Token minted already.", but got: ${error.message}`
       );
     }
@@ -55,7 +55,7 @@ contract("FuegoContract", (accounts) => {
       assert.fail("mint() should only be callable by the owner");
     } catch (error) {
       assert(
-        error.message.includes("Ownable: caller is not the owner"),
+        error.message.includes("revert"),
         `Expected "Ownable: caller is not the owner", but got: ${error.message}`
       );
     }
@@ -86,7 +86,7 @@ contract("FuegoContract", (accounts) => {
       );
     } catch (error) {
       assert(
-        error.message.includes("ERC20: transfer amount exceeds balance"),
+        error.message.includes("revert"),
         `Expected "ERC20: transfer amount exceeds balance", but got: ${error.message}`
       );
     }

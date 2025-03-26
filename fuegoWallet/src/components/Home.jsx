@@ -9,14 +9,17 @@ import {
   Col,
   Spinner,
 } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+import Fuego from "../artifacts/contracts/Fuego.sol/Fuego.json";
+import WalletBalance from "./WalletBalance";
 
 const ERC20_ABI = [
   "function balanceOf(address owner) view returns (uint256)",
   "function transfer(address to, uint256 amount) returns (bool)",
 ];
 
-const ERC20Transfer = () => {
+const contractAddress = "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9";
+
+function Home() {
   const [tokenAddress, setTokenAddress] = useState("");
   const [recipient, setRecipient] = useState("");
   const [amount, setAmount] = useState("");
@@ -40,7 +43,7 @@ const ERC20Transfer = () => {
     try {
       const provider = new ethers.BrowserProvider(window.ethereum);
       const signer = await provider.getSigner();
-      const contract = new ethers.Contract(tokenAddress, ERC20_ABI, signer);
+      const contract = new ethers.Contract(contractAddress, Fuego.abi, signer);
       const tx = await contract.transfer(
         recipient,
         ethers.parseUnits(amount, 18)
@@ -58,6 +61,9 @@ const ERC20Transfer = () => {
       <Row className="justify-content-center">
         <Col md={6}>
           <Card className="p-3 shadow-sm">
+            <WalletBalance />
+          </Card>
+          <Card className="p-3 shadow-sm mt-4">
             <Card.Body>
               <Form>
                 <Form.Group className="mb-3">
@@ -123,6 +129,6 @@ const ERC20Transfer = () => {
       </Row>
     </Container>
   );
-};
+}
 
-export default ERC20Transfer;
+export default Home;

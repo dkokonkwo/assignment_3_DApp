@@ -8,7 +8,7 @@ async function main() {
   const Fuego = await hre.ethers.getContractFactory("Fuego");
   const fuego = await Fuego.deploy(deployer.address);
 
-  await Fuego.waitForDeployment();
+  await fuego.waitForDeployment();
 
   console.log("My NFT deployed to:", await fuego.getAddress());
 }
