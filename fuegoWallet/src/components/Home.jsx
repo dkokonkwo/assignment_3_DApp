@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 import { ethers } from "ethers";
-import { Input, Button, Card, CardContent } from "@/components/ui";
+import {
+  Form,
+  Button,
+  Card,
+  Container,
+  Row,
+  Col,
+  Spinner,
+} from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const ERC20_ABI = [
   "function balanceOf(address owner) view returns (uint256)",
@@ -45,43 +54,74 @@ const ERC20Transfer = () => {
   };
 
   return (
-    <div className="flex flex-col items-center p-4">
-      <Card className="w-full max-w-md p-4 shadow-md">
-        <CardContent>
-          <Input
-            placeholder="ERC20 Token Address"
-            value={tokenAddress}
-            onChange={(e) => setTokenAddress(e.target.value)}
-          />
-          <Button onClick={getBalance} className="mt-2">
-            Check Balance
-          </Button>
-          {balance !== null && (
-            <p className="mt-2">Balance: {balance} Tokens</p>
-          )}
-        </CardContent>
-      </Card>
+    <Container className="mt-4">
+      <Row className="justify-content-center">
+        <Col md={6}>
+          <Card className="p-3 shadow-sm">
+            <Card.Body>
+              <Form>
+                <Form.Group className="mb-3">
+                  <Form.Label>ERC20 Token Address</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Enter token contract address"
+                    value={tokenAddress}
+                    onChange={(e) => setTokenAddress(e.target.value)}
+                  />
+                </Form.Group>
+                <Button
+                  variant="primary"
+                  onClick={getBalance}
+                  className="w-100"
+                >
+                  Check Balance
+                </Button>
+                {balance !== null && (
+                  <p className="mt-2 text-center">Balance: {balance} Tokens</p>
+                )}
+              </Form>
+            </Card.Body>
+          </Card>
 
-      <Card className="w-full max-w-md mt-4 p-4 shadow-md">
-        <CardContent>
-          <Input
-            placeholder="Recipient Address"
-            value={recipient}
-            onChange={(e) => setRecipient(e.target.value)}
-          />
-          <Input
-            placeholder="Amount"
-            type="number"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-            className="mt-2"
-          />
-          <Button onClick={transferTokens} className="mt-2" disabled={loading}>
-            {loading ? "Transferring..." : "Transfer Tokens"}
-          </Button>
-        </CardContent>
-      </Card>
-    </div>
+          <Card className="p-3 shadow-sm mt-4">
+            <Card.Body>
+              <Form>
+                <Form.Group className="mb-3">
+                  <Form.Label>Recipient Address</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Enter recipient address"
+                    value={recipient}
+                    onChange={(e) => setRecipient(e.target.value)}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label>Amount</Form.Label>
+                  <Form.Control
+                    type="number"
+                    placeholder="Enter amount"
+                    value={amount}
+                    onChange={(e) => setAmount(e.target.value)}
+                  />
+                </Form.Group>
+                <Button
+                  variant="success"
+                  onClick={transferTokens}
+                  className="w-100"
+                  disabled={loading}
+                >
+                  {loading ? (
+                    <Spinner animation="border" size="sm" />
+                  ) : (
+                    "Transfer Tokens"
+                  )}
+                </Button>
+              </Form>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
