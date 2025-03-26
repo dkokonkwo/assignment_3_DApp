@@ -32,10 +32,10 @@ contract Fuego is ERC20, Ownable, ERC20Permit {
         return balanceOf(account);
     }
 
-    // function transferTokens(address to, uint256 amount) public returns (bool) {
-    //     _transfer(msg.sender, to, amount);
-    //     return true;
-    // }
+    function transferTokens(address to, uint256 amount) public returns (bool) {
+        _transfer(msg.sender, to, amount);
+        return true;
+    }
 }
 
 

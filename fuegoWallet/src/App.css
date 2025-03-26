@@ -12,3 +12,45 @@
     animation: logo-spin infinite 20s linear;
   }
 }
+
+.card {
+  background-color: #d9e3f0 !important;
+  border: none !important;
+  box-shadow: 0 4px 8px 0 lightblue, 0 6px 20px 0 lightblue !important;
+}
+
+.modal-header,
+.modal-footer,
+.modal-body {
+  background-color: #d9e3f0 !important;
+  border: none !important;
+}
+
+.title {
+  font-family: "Poppins", sans-serif !important;
+}
+
+.title-2 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-family: "Space Mono", monospace;
+}
+
+.title-3 {
+  font-weight: 500;
+  font-family: "Space Mono", monospace;
+}
+
+.balance-btn {
+  background-color: #ff8a65 !important;
+  border: none !important;
+  margin-block: 2rem;
+}
+
+Button {
+  transition: ease-in-out 0.4s !important;
+}
+
+Button:hover {
+  transform: scale(1.05);
+}

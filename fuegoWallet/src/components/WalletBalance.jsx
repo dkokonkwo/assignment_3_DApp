@@ -43,13 +43,11 @@ function WalletBalance() {
 
     const blockNumber = await provider.getBlockNumber();
     console.log("Current block number:", blockNumber);
-
-    // getCount();
   };
 
   return (
-      <div>
-          <h5>Check Your ETH Balance here</h5>
+    <div>
+      <h5>Check Your ETH Balance here</h5>
       <Button onClick={handleShow} className="balance-btn">
         Check Balance
       </Button>
@@ -60,13 +58,13 @@ function WalletBalance() {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Account Balance</Modal.Title>
+          <Modal.Title>ETH Balance</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4 className="balance">{balance} ETH</h4>
+          <h4 className="balance title-2">{balance} ETH</h4>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="success" onClick={handleClose}>
             Close
           </Button>
         </Modal.Footer>
